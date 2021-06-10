@@ -27,13 +27,13 @@ export default function CreateAccount() {
 
             <View style={[styles.twoItemsForm, { marginTop: 0, marginBottom: 12 }]}>
                 <View style={styles.nameForm}>
-                    <Text style={styles.labels}>NOME</Text>
+                    <Text style={styles.labels}>DIRETORIA</Text>
                     <TextInput style={[styles.inputs, { width: 132, height: 43 }]} autoCorrect={false} onChangeText={() => { }} />
                 </View>
 
                 <View style={styles.nameForm}>
-                    <Text style={styles.labels}>SOBRENOME</Text>
-                    <TextInput style={[styles.inputs, { width: 132, height: 43 }]} autoCorrect={false} onChangeText={() => { }} />
+                    <Text style={styles.labels}></Text>
+                    <TextInput placeholder="CARGO" style={[styles.inputs, { width: 132, height: 43 }]} autoCorrect={false} onChangeText={() => { }} />
                 </View>
             </View>
 
