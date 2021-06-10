@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import CreateAccount from './pages/CreateAccount';
 import MemberProfile from './pages/MemberProfile';
+import Task from './pages/Task';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,7 @@ function Routes() {
                 <Stack.Screen options={{
                     headerShown: false
                 }} name="login" component={Login} />
-                
+
                 <Stack.Screen name="home" component={Home}
                     options={{
                         title: 'INCLUDE',
@@ -29,6 +30,9 @@ function Routes() {
                         headerTintColor: '#A0A0B2',
                         headerTintStyle: {
                             fontFamily: 'Roboto_700Bold'
+                        },
+                        headerTitleStyle:{
+                            fontSize: 12
                         },
                         headerTitleAlign: 'center',
                         headerLeft: () => (
@@ -47,6 +51,9 @@ function Routes() {
                         headerTintColor: '#A0A0B2',
                         headerTintStyle: {
                             fontFamily: 'Roboto_700Bold',
+                            fontSize: 12
+                        },
+                        headerTitleStyle:{
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
@@ -76,6 +83,9 @@ function Routes() {
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
+                        headerTitleStyle:{
+                            fontSize: 12
+                        },
                         headerRight: () => (
                             <Text style={{
                                 marginRight: 24,
@@ -85,6 +95,34 @@ function Routes() {
                                 fontFamily: 'Roboto_300Light'
                             }}>
                                 MEMBRO
+                            </Text>
+                        )
+                    }}
+                />
+
+                <Stack.Screen name="task" component={Task}
+                    options={{
+                        title: 'INCLUDE',
+                        headerStyle: {
+                            backgroundColor: '#003057',
+                        },
+                        headerTintColor: '#A0A0B2',
+                        headerTintStyle: {
+                            fontFamily: 'Roboto_700Bold',
+                        },
+                        headerTitleStyle:{
+                            fontSize: 12
+                        },
+                        headerTitleAlign: 'center',
+                        headerRight: () => (
+                            <Text style={{
+                                marginRight: 20,
+                                marginVertical: 18,
+                                fontSize: 12,
+                                color: '#A0A0B2',
+                                fontFamily: 'Roboto_300Light'
+                            }}>
+                                MEMBRO/ADMIN
                             </Text>
                         )
                     }}

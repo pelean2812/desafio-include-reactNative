@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons';
 
 export default function MemberProfile(props) {
+    
+    const navigation = useNavigation();
+
     return (
         <ScrollView showsVerticalScrollIndicator={false} backgroundColor={'#ECECEC'} style={styles.container}>
             <View style={styles.profile}>
@@ -36,7 +40,7 @@ export default function MemberProfile(props) {
             <View style={styles.tasks}>
                 <Text style={[styles.textSection, { marginTop: 14, marginBottom: 30 }]}>TAREFAS</Text>
 
-                <TouchableOpacity style={styles.task}>
+                <TouchableOpacity style={styles.task} onPress={()=>{navigation.navigate('task')}}>
                     <View style={styles.taskTitleData}>
                         <Text style={styles.taskText}>TÍTULO</Text>
                         <Text style={styles.taskText}>DATA</Text>
