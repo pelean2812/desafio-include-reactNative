@@ -1,9 +1,19 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, ScrollView } from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, ScrollView } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function CreateAccount() {
+    const [open, setOpen] = useState(false)
+    const [value, setValue] = useState(null)
+    const [items, setItems] = useState([
+        { label: 'PRESIDÊNCIA', value: 'PRESIDÊNCIA' },
+        { label: 'ADM/FIN', value: 'ADM/FIN' },
+        { label: 'PROJETOS', value: 'PROJETOS' },
+        { label: 'GESTÃO DE PESSOAS', value: 'GESTÃO DE PESSOAS' },
+    ])
+
     return (
-        <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+        <View>
             <View style={styles.twoItemsForm}>
                 <View style={styles.nameForm}>
                     <Text style={styles.labels}>NOME</Text>
@@ -28,7 +38,30 @@ export default function CreateAccount() {
             <View style={[styles.twoItemsForm, { marginTop: 0, marginBottom: 12 }]}>
                 <View style={styles.nameForm}>
                     <Text style={styles.labels}>DIRETORIA</Text>
-                    <TextInput style={[styles.inputs, { width: 132, height: 43 }]} autoCorrect={false} onChangeText={() => { }} />
+                    <DropDownPicker
+                        placeholder="PRIMÁRIA"
+                        open={open}
+                        value={value}
+                        items={items}
+                        setOpen={setOpen}
+                        setValue={setValue}
+                        setItems={setItems}
+                        dropDownContainerStyle={{
+                            backgroundColor: "#FFF",
+                            borderWidth: 0,
+                            marginVertical: 10,
+                            fontFamily: 'Roboto_400Regular',
+                            fontSize: 12,
+                            textAlign: 'center',
+                        }}
+                        textStyle={{
+                            fontFamily: 'Roboto_400Regular',
+                            fontSize: 12,
+                            textAlign: 'center',
+                            color: '#9E9E9E'
+                        }}
+                        style={[styles.inputs, { width: 132, height: 38 }]}
+                    />
                 </View>
 
                 <View style={styles.nameForm}>
@@ -42,13 +75,11 @@ export default function CreateAccount() {
             </View>
 
             <View style={styles.final}>
-                <Text style={styles.finalText}>Administrador</Text>
-
                 <TouchableOpacity style={[styles.btn, { alignSelf: 'center' }]} onPress={() => { }}>
                     <Text style={styles.btnText}>ENVIAR</Text>
                 </TouchableOpacity>
             </View>
-        </ScrollView>
+        </View>
     )
 }
 
@@ -64,17 +95,22 @@ const styles = StyleSheet.create({
         marginHorizontal: 23,
         flexDirection: 'row'
     },
+    dropDown: {
+        width: 132,
+        height: 28,
+    },
     inputs: {
         backgroundColor: '#FFF',
         color: '#000',
         elevation: 5,
-        borderRadius: 6,
+        borderRadius: 8,
         height: 38,
         marginBottom: 11,
         marginTop: 11,
         fontFamily: 'Roboto_400Regular',
         fontSize: 12,
-        textAlign: 'center'
+        textAlign: 'center',
+        borderWidth: 0
     },
     labels: {
         fontFamily: 'Roboto_400Regular',
@@ -92,9 +128,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     final: {
-        marginTop: 23
+        marginTop: 23,
+        zIndex: -1
     },
-    finalText:{
+    finalText: {
         fontFamily: 'Roboto_400Regular',
         fontSize: 14,
         marginLeft: 45.4,
@@ -109,7 +146,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        elevation: 7
+        elevation: 7,
     },
     btnText: {
         color: '#C4C4C4',

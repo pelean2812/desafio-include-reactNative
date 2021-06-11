@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function CreateTask() {
+    const [open, setOpen] = useState(false)
+    const [value, setValue] = useState(null)
+    const [items, setItems] = useState([
+        { label: 'PONTUALIDADE', value: 'PONTUALIDADE' },
+        { label: 'ASSIDUIDADE', value: 'ASSIDUIDADE' },
+        { label: 'DENTRO DO PRAZO', value: 'DENTRO DO PRAZO' },
+        { label: 'PERSONALIZADO', value: 'PERSONALIZADO' },
+    ])
+
     return (
         <View style={styles.container}>
             <View style={styles.task}>
@@ -27,6 +37,31 @@ export default function CreateTask() {
 
             <View style={styles.points}>
                 <Text style={[styles.text, { marginBottom: 11 }]}>PONTUAÇÃO</Text>
+                <DropDownPicker
+                    placeholder="CATEGORIA"
+                    open={open}
+                    value={value}
+                    items={items}
+                    setOpen={setOpen}
+                    setValue={setValue}
+                    setItems={setItems}
+                    dropDownContainerStyle={{
+                        backgroundColor: "#FFF",
+                        borderWidth: 0,
+                        marginVertical: 10,
+                        fontFamily: 'Roboto_400Regular',
+                        fontSize: 12,
+                        textAlign: 'center',
+                        width: 150
+                    }}
+                    textStyle={{
+                        fontFamily: 'Roboto_400Regular',
+                        fontSize: 12,
+                        textAlign: 'center',
+                        color: '#9E9E9E'
+                    }}
+                    style={[styles.inputs, { width: 150, height: 38 }]}
+                />
             </View>
 
             <View style={styles.prizes}>
@@ -95,9 +130,23 @@ const styles = StyleSheet.create({
         marginLeft: 35,
         marginBottom: 15
     },
+    inputs: {
+        backgroundColor: '#FFF',
+        color: '#000',
+        elevation: 5,
+        borderRadius: 8,
+        height: 38,
+        marginBottom: 11,
+        marginTop: 11,
+        fontFamily: 'Roboto_400Regular',
+        fontSize: 12,
+        textAlign: 'center',
+        borderWidth: 0
+    },
     prizes: {
         marginLeft: 35,
-        marginBottom: 10
+        marginBottom: 10,
+        zIndex: -1
     },
     prizeAdd: {
         width: 55,
