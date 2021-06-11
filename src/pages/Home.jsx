@@ -3,7 +3,7 @@ import { View, ScrollView, Text, TouchableOpacity, TextInput, StyleSheet } from 
 import { useNavigation } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons';
 
-export default function Home() {
+export default function Home(props) {
 
     const navigation = useNavigation();
 
@@ -16,7 +16,7 @@ export default function Home() {
             <TouchableOpacity style={[styles.member, { marginTop: -10 }]}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'Jefferson', diretoria: 'Projetos', pontos: 3250, })
+                        { nome: 'Jefferson', diretoria: 'Projetos', pontos: 3250, admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>1º</Text>
 
@@ -33,7 +33,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>2º</Text>
 
@@ -50,7 +50,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>3º</Text>
 
@@ -67,7 +67,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>4º</Text>
 
@@ -84,7 +84,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>5º</Text>
 
@@ -101,7 +101,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>6º</Text>
 
@@ -118,7 +118,7 @@ export default function Home() {
             <TouchableOpacity style={styles.member}
                 onPress={() => {
                     navigation.navigate('memberProfile',
-                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO' })
+                        { nome: 'NOME', diretoria: 'DIRETORIA', pontos: 'PONTUACAO', admin: props.route.params.isAdmin })
                 }}>
                 <Text style={styles.memberCount}>7º</Text>
 

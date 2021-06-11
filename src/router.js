@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import CreateAccount from './pages/CreateAccount';
 import MemberProfile from './pages/MemberProfile';
 import Task from './pages/Task';
+import CreateTask from './pages/CreateTask';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +32,7 @@ function Routes() {
                         headerTintStyle: {
                             fontFamily: 'Roboto_700Bold'
                         },
-                        headerTitleStyle:{
+                        headerTitleStyle: {
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
@@ -53,7 +54,7 @@ function Routes() {
                             fontFamily: 'Roboto_700Bold',
                             fontSize: 12
                         },
-                        headerTitleStyle:{
+                        headerTitleStyle: {
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
@@ -83,7 +84,7 @@ function Routes() {
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
-                        headerTitleStyle:{
+                        headerTitleStyle: {
                             fontSize: 12
                         },
                         headerRight: () => (
@@ -110,7 +111,7 @@ function Routes() {
                         headerTintStyle: {
                             fontFamily: 'Roboto_700Bold',
                         },
-                        headerTitleStyle:{
+                        headerTitleStyle: {
                             fontSize: 12
                         },
                         headerTitleAlign: 'center',
@@ -124,6 +125,26 @@ function Routes() {
                             }}>
                                 MEMBRO/ADMIN
                             </Text>
+                        )
+                    }}
+                />
+
+                <Stack.Screen name="createTask" component={CreateTask}
+                    options={{
+                        title: 'INCLUDE',
+                        headerStyle: {
+                            backgroundColor: '#003057',
+                        },
+                        headerTintColor: '#A0A0B2',
+                        headerTintStyle: {
+                            fontFamily: 'Roboto_700Bold',
+                        },
+                        headerTitleStyle: {
+                            fontSize: 12
+                        },
+                        headerTitleAlign: 'center',
+                        headerRight: () => (
+                            <Feather style={{ marginLeft: 34.38, marginHorizontal: 10.92 }} name="save" size={26} color="#A0A0B2" />
                         )
                     }}
                 />

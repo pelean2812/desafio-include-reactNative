@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import { Feather } from '@expo/vector-icons';
 
 export default function MemberProfile(props) {
-    
+
     const navigation = useNavigation();
 
     return (
@@ -29,18 +29,27 @@ export default function MemberProfile(props) {
             <View>
                 <Text style={styles.textSection}>SELOS</Text>
 
-                <View style={styles.prizes}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.prizes}>
                     <Image style={styles.prizeImage} source={require('../images/prize1.png')} />
                     <Image style={styles.prizeImage} source={require('../images/prize2.png')} />
-                </View>
+                </ScrollView>
             </View>
 
             <View style={styles.line}></View>
 
             <View style={styles.tasks}>
-                <Text style={[styles.textSection, { marginTop: 14, marginBottom: 30 }]}>TAREFAS</Text>
+                <View style={styles.taskHeader}>
+                    <Text style={[styles.textSection, { marginTop: 14, marginBottom: 30 }]}>TAREFAS</Text>
 
-                <TouchableOpacity style={styles.task} onPress={()=>{navigation.navigate('task')}}>
+                    {props.route.params.admin ?
+                        <TouchableOpacity style={styles.btnCreateTask}>
+                            <Text style={styles.btnText} onPress={() => navigation.navigate('createTask')}>ADICIONAR</Text>
+                        </TouchableOpacity> : <></>
+                    }
+                </View>
+
+
+                <TouchableOpacity style={styles.task} onPress={() => { navigation.navigate('task') }}>
                     <View style={styles.taskTitleData}>
                         <Text style={styles.taskText}>TÍTULO</Text>
                         <Text style={styles.taskText}>DATA</Text>
@@ -136,7 +145,7 @@ const styles = StyleSheet.create({
         marginTop: 11,
         color: '#003057',
         fontSize: 20,
-        marginLeft: 59,
+        marginLeft: 53,
         marginBottom: 19
     },
     prizes: {
@@ -149,6 +158,25 @@ const styles = StyleSheet.create({
         marginRight: 15,
         width: 55,
         height: 55
+    },
+    taskHeader: {
+        flexDirection: 'row',
+    },
+    btnCreateTask: {
+        marginTop: 11,
+        marginLeft: 134,
+        backgroundColor: '#002F55',
+        borderRadius: 6,
+        width: 85,
+        height: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 7
+    },
+    btnText:{
+        fontFamily: 'Roboto_700Bold',
+        fontSize: 12,
+        color: '#C4C4C4'
     },
     task: {
         width: 300,
@@ -189,5 +217,5 @@ const styles = StyleSheet.create({
     progressText: {
         fontFamily: 'Roboto_400Regular',
         fontSize: 14,
-    },
+    }
 });
