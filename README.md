@@ -3,7 +3,7 @@ Aplicação mobile feita para auxiliar a organização, e na manutenção da cul
  
 # Itens cumpridos
 
-- [X] O app foi feito utilizando React Ative
+- [X] O app foi feito utilizando React Native
 
 # Itens não cumpridos
 
