@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Text, TouchableOpacity } from 'react-native';
 
@@ -37,11 +37,13 @@ function Routes() {
                         },
                         headerTitleAlign: 'center',
                         headerLeft: () => (
-                            <TouchableOpacity style={{ marginLeft: 34.38, marginHorizontal: 10.92 }}>
+                            <TouchableOpacity style={{ marginLeft: 34.38, marginHorizontal: 10.92 }}
+                                onPress={() => { }}>
                                 <Feather name="home" size={27} color="#A0A0B2" />
                             </TouchableOpacity>
                         )
-                    }} />
+                    }} 
+                    />
 
                 <Stack.Screen name="createAccount" component={CreateAccount}
                     options={{

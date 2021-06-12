@@ -18,14 +18,14 @@ export default function Login() {
           onChangeText={password => setPassword(password)} />
         <View style={styles.buttons}>
           <TouchableOpacity style={styles.btn} onPress={() => { navigation.navigate('createAccount') }}>
-            <Text style={styles.btnText}>Cadastro</Text>
+            <Text style={styles.btnText}>CADASTRO</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.btn} onPress={() => {
             if (user == 'admin' && password == 'AdmiN') {
-              navigation.navigate('home', {isAdmin: true})
-            } else if (user == 'user' && password == 'user'){
-              navigation.navigate('home', {isAdmin: false})
+              navigation.navigate('home', { isAdmin: true })
+            } else if (user == 'user' && password == 'user') {
+              navigation.navigate('home', { isAdmin: false })
             } else {
               alert('Usuário ou senha incorretos')
             }
