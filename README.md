@@ -5,6 +5,10 @@ Aplicação mobile feita para auxiliar a organização, e na manutenção da cul
 
 - [X] O app foi feito utilizando React Ative
 
+# Itens não cumpridos
+
+- [ ] A aplicação não tem backend, então para poder usar a aplicação, você deve inserir um usuário e senha predefinido (ver a parte de observações)
+
 # Como utilizar o projeto em seu computador
 - Clicar no botão verde (tem escrito code) -> download zip. Extraia o arquivo.
 - Após isso, certifique-se de que você possui o Node js em sua máquina, e que ele esteja devidamente configurado para rodar o comando "npm" em algum terminal.
